@@ -24,7 +24,9 @@ const chainIds = {
   fuji: 43113,
   avalanche: 43114,
   alfajores: 44787,
-  celo: 42220
+  celo: 42220,
+  lineaSepolia: 59141,
+  linea: 59144,
 };
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
@@ -142,6 +144,17 @@ const config: HardhatUserConfig = {
       chainId: chainIds.celo,
       // gasPrice: 20000000000,
       accounts: [`0x${PRIVATE_KEY}`],
+    },
+    lineaSepolia: {
+      url: getRPCURL("linea-sepolia", defaultRPCNodeProvider), // public URL: 'https://linea-sepolia.blockpi.network/v1/rpc/',
+      chainId: chainIds.lineaSepolia,
+      gasPrice: 20000000000,
+      accounts: [`0x${PRIVATE_KEY}`],
+    },
+    linea: {
+      url: getRPCURL("linea", defaultRPCNodeProvider), // public URL: 'https://rpc.linea.build',
+      chainId: chainIds.linea,
+      accounts: [`0x${PRIVATE_KEY}`]
     },
   },
  
